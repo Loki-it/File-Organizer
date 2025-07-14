@@ -68,8 +68,8 @@ new/
 │ └── song.mp3
 ├── Archives/
 │ └── archive.zip
-└── Documents/
-└── report.pdf
+├── Documents/
+│ └── report.pdf
 ```
 ---
 
@@ -79,4 +79,4 @@ new/
 2. Run the script:
 
 ```bash
-python file_organizer.py
+python main.py
