@@ -79,4 +79,4 @@ new/
 2. Run the script:
 
 ```bash
-python main.py
+python3 main.py
