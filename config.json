@@ -1,0 +1,138 @@
+{
+    "paths": {
+        "source_folder": "to_organize",
+        "destination_folder": "organized_files"
+    },
+    "behavior": {
+        "max_depth": 0,
+        "min_size_kb": 0,
+        "dry_run": false
+    },
+    "security": {
+        "ignore_app_folders": true,
+        "app_folder_indicators": [
+            ".exe",
+            ".dll",
+            ".ini",
+            ".bat",
+            ".sh",
+            "node_modules",
+            ".git",
+            "bin",
+            "lib",
+            "Program Files",
+            ".app",
+            "package.json",
+            "steamapps",
+            ".pak"
+        ],
+        "specific_folders_to_ignore": [
+            ".git",
+            ".svn",
+            "node_modules",
+            "venv",
+            ".venv",
+            "__pycache__",
+            "Windows",
+            "Program Files",
+            "AppData"
+        ]
+    },
+    "system": {
+        "log_file": "file_organizer.log",
+        "history_file": "history.json",
+        "threads": 4
+    },
+    "categories": {
+        "Images": [
+            ".jpg",
+            ".jpeg",
+            ".png",
+            ".gif",
+            ".webp",
+            ".bmp",
+            ".tiff",
+            ".svg",
+            ".raw",
+            ".ico",
+            ".heic"
+        ],
+        "Audio": [
+            ".mp3",
+            ".wav",
+            ".flac",
+            ".aac",
+            ".ogg",
+            ".m4a",
+            ".wma",
+            ".midi"
+        ],
+        "Video": [
+            ".mp4",
+            ".mkv",
+            ".avi",
+            ".mov",
+            ".wmv",
+            ".flv",
+            ".webm",
+            ".m4v",
+            ".mpeg"
+        ],
+        "Documents": [
+            ".doc",
+            ".docx",
+            ".pdf",
+            ".txt",
+            ".rtf",
+            ".odt",
+            ".xls",
+            ".xlsx",
+            ".ppt",
+            ".pptx",
+            ".csv",
+            ".md"
+        ],
+        "Archives": [
+            ".zip",
+            ".rar",
+            ".7z",
+            ".tar",
+            ".gz",
+            ".iso",
+            ".bz2",
+            ".xz"
+        ],
+        "Programs_and_Installers": [
+            ".msi",
+            ".dmg",
+            ".pkg",
+            ".deb",
+            ".rpm",
+            ".apk"
+        ],
+        "Code_Development": [
+            ".py",
+            ".js",
+            ".html",
+            ".css",
+            ".java",
+            ".c",
+            ".cpp",
+            ".php",
+            ".json",
+            ".xml",
+            ".sql",
+            ".ts"
+        ],
+        "Graphics_and_3D": [
+            ".obj",
+            ".fbx",
+            ".blend",
+            ".stl",
+            ".psd",
+            ".ai",
+            ".prproj"
+        ]
+    },
+    "default_category": "Other"
+}
