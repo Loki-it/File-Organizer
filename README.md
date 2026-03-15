@@ -1,44 +1,71 @@
-🗂️ File-Organizer
+# 🗂️ File-Organizer
 
 File-Organizer is a smart and safe Python script that automatically organizes files from a source directory into categorized folders based on file type.
 
-Unlike basic organizers, it detects and skips folders belonging to installed software, games, or development projects (such as folders containing .exe, .dll, .pak files or protected directories like .git and .venv), preventing accidental damage to your system.
+Unlike basic organizers, it detects and skips folders belonging to installed software, games, or development projects (such as directories containing `.exe`, `.dll`, `.pak` files or protected folders like `.git` and `.venv`), preventing accidental damage to important files.
 
-⚙️ How It Works
+## ⚙️ How It Works
 
-- Scans a specified source directory up to a configurable depth (MAX_DEPTH=0 by default, meaning only root-level loose files are organized)
-- Identifies the file type by extension and classifies it into predefined categories (e.g., Images, Music, Documents, 3D, ISO, CSV, SQL)
-- Moves each file to a corresponding subfolder under the destination base
-- Skips folders that appear to belong to applications, games, or development environments
-- Automatically renames files if a name conflict occurs (incremental renaming: foto_1.jpg, foto_2.jpg)
-- Logs all actions and warnings to both console and a .log file
+- Scans a specified source directory up to a configurable depth.
+- Uses `MAX_DEPTH = 0` by default, meaning only loose files in the root folder are organized.
+- Identifies file types by extension and classifies them into predefined categories such as Images, Music, Documents, 3D, ISO, CSV, and SQL.
+- Moves each file into the corresponding destination subfolder.
+- Skips folders that appear to belong to applications, games, or development environments.
+- Automatically renames duplicate files with incremental naming such as `foto_1.jpg`, `foto_2.jpg`.
+- Logs actions, warnings, and errors to both console and log file.
 
-🚀 Features
+## 🚀 Features
 
-✅ Smart app, game, and project folder detection
-✅ Max depth control to limit recursion
-✅ Dry-run mode to preview actions without moving files (--dry-run)
-✅ Undo mode to restore all moved files to their original location (--undo)
-✅ Auto-generated config.json for easy customization without editing source code
-✅ Duplicate file handling with incremental renaming (no overwrite)
-✅ Extended categories: 3D files, ISO, CSV, SQL and more
-✅ Detailed logging and graceful error handling
+- ✅ Smart app, game, and project folder detection
+- ✅ Max depth control to limit recursion
+- ✅ Dry-run mode to preview actions without moving files
+- ✅ Undo mode to restore moved files to their original locations
+- ✅ Automatic `config.json` generation for easy customization
+- ✅ Duplicate-safe renaming with no overwrite
+- ✅ Extended file categories including 3D, ISO, CSV, and SQL
+- ✅ Detailed logging and graceful error handling
 
-🛠 Configuration
+## 🛠️ Configuration
 
-On first launch, the script automatically generates a config.json file. From there you can customize source and destination folders, categories, extensions, scan depth, and protected folder rules — no need to touch the source code.
+At first launch, the script automatically generates a `config.json` file.
 
-⏪ Undo
+From there, you can customize:
 
-Every operation is recorded in history.json. To restore all moved files to their original location:
+- Source and destination folders
+- File categories and extensions
+- Maximum scan depth
+- Protected folder rules
+- General behavior of the organizer
+
+This makes the project easier to configure without editing the source code directly.
+
+## ⏪ Undo
+
+Every move operation is recorded in `history.json`.
+
+To restore moved files to their original locations, run:
+
+```bash
 python main.py --undo
+```
 
-🧪 Dry-Run
+## 🧪 Dry-Run
 
-To simulate the entire process without moving any file:
+To simulate the organization process without moving any files, run:
+
+```bash
 python main.py --dry-run
+```
 
-▶️ How to Run
+This mode lets you preview exactly what the script would do while keeping all files untouched.
+
+## ▶️ How to Run
 
 Place your files in the source folder and run:
+
+```bash
 python main.py
+```
+
+On first launch, the script will automatically generate `config.json`.
+
