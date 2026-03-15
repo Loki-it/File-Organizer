@@ -1,46 +1,44 @@
-# 🗂️ File-Organizer
+🗂️ File-Organizer
 
-File-Organizer is an advanced Python-based file organization tool designed to sort files safely and intelligently. It classifies files by type, avoids dangerous recursion into software and project directories, and provides modern safeguards such as dry-run simulation, undo support, configurable scan depth, and external configuration.
+File-Organizer is a smart and safe Python script that automatically organizes files from a source directory into categorized folders based on file type.
 
-## ⚙️ How It Works
+Unlike basic organizers, it detects and skips folders belonging to installed software, games, or development projects (such as folders containing .exe, .dll, .pak files or protected directories like .git and .venv), preventing accidental damage to your system.
 
-The script scans a target directory and organizes files by extension into predefined categories.  
-Before entering folders, it checks whether they appear to belong to installed software, games, or development projects. If it detects executable files, libraries, system-related files, or protected folders such as `.git` or `.venv`, it skips them automatically.
+⚙️ How It Works
 
-By default, the script only organizes loose files in the selected root folder. This prevents accidental modification of nested application, game, or project directories.
+- Scans a specified source directory up to a configurable depth (MAX_DEPTH=0 by default, meaning only root-level loose files are organized)
+- Identifies the file type by extension and classifies it into predefined categories (e.g., Images, Music, Documents, 3D, ISO, CSV, SQL)
+- Moves each file to a corresponding subfolder under the destination base
+- Skips folders that appear to belong to applications, games, or development environments
+- Automatically renames files if a name conflict occurs (incremental renaming: foto_1.jpg, foto_2.jpg)
+- Logs all actions and warnings to both console and a .log file
 
-## 🚀 Features
+🚀 Features
 
-- ✅ Smart app, game, and project detection
-- ✅ Safer folder scanning with automatic skip rules
-- ✅ Max depth control to limit recursion
-- ✅ Dry-run mode to preview actions without moving files
-- ✅ Undo mode to restore moved files to their original locations
-- ✅ Automatic `config.json` generation for easy customization
-- ✅ Duplicate file handling with incremental renaming
-- ✅ Support for additional file categories, including 3D, ISO, CSV, and SQL files
-- ✅ Detailed logging and error handling
+✅ Smart app, game, and project folder detection
+✅ Max depth control to limit recursion
+✅ Dry-run mode to preview actions without moving files (--dry-run)
+✅ Undo mode to restore all moved files to their original location (--undo)
+✅ Auto-generated config.json for easy customization without editing source code
+✅ Duplicate file handling with incremental renaming (no overwrite)
+✅ Extended categories: 3D files, ISO, CSV, SQL and more
+✅ Detailed logging and graceful error handling
 
-## 🛡️ Safety Improvements
+🛠 Configuration
 
-This version was redesigned to avoid the main issue of the old implementation: blindly scanning every subfolder and moving files only by extension.  
-Now the script applies protective checks before processing directories, making it much safer to use on disks containing programs, games, websites, and development environments.
+On first launch, the script automatically generates a config.json file. From there you can customize source and destination folders, categories, extensions, scan depth, and protected folder rules — no need to touch the source code.
 
-## 🛠 Configuration
+⏪ Undo
 
-The script automatically generates a `config.json` file on first launch.  
-You can use it to customize:
-
-- Source and destination folders
-- Category rules and extensions
-- Maximum scan depth
-- Protected folders and file patterns
-- General organizer behavior without editing the source code
-
-## ⏪ Undo Support
-
-Every moved file is recorded in `history.json`.  
-If something is moved incorrectly, you can restore everything with:
-
-```bash
+Every operation is recorded in history.json. To restore all moved files to their original location:
 python main.py --undo
+
+🧪 Dry-Run
+
+To simulate the entire process without moving any file:
+python main.py --dry-run
+
+▶️ How to Run
+
+Place your files in the source folder and run:
+python main.py
